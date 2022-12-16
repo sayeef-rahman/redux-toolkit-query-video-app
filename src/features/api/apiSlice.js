@@ -8,6 +8,7 @@ export const apiSlice = createApi({
   endpoints: (builder) => ({
     getVideos: builder.query({
       query: () => "/videos",
+      // keepUnusedDataFor: 120, //calculated in seconds & default value is 60 seconds
     }),
     getVideo: builder.query({
       query: (videoId) => `/videos/${videoId}`,
