@@ -4,7 +4,6 @@ import editImage from "../../assets/edit.svg";
 
 export default function Description({ video }) {
   const { id, title, date, description } = video;
-  console.log("description: ", description);
   return (
     <div>
       <h1 className="text-lg font-semibold tracking-tight text-slate-800">
@@ -18,7 +17,9 @@ export default function Description({ video }) {
         <div className="flex gap-6 w-full justify-end">
           <div className="flex gap-1">
             <div className="shrink-0">
-              <img className="w-5 block" src={editImage} alt="Edit" />
+              <Link to={`/videos/edit/${id}`}>
+                <img className="w-5 block" src={editImage} alt="Edit" />
+              </Link>
             </div>
             <Link to={`/videos/edit/${id}`}>
               <span className="text-sm leading-[1.7142857] text-slate-600 cursor-pointer">
