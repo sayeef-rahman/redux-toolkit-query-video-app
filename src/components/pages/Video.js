@@ -11,7 +11,6 @@ import RelatedVideoLoader from "../../components/ui/loaders/RelatedVideoLoader";
 export default function Video() {
   const { videoId } = useParams();
   const { data: video, isLoading, isError, error } = useGetVideoQuery(videoId);
-  console.log("video: ", video);
 
   let content = null;
   if (isLoading || !video) {
@@ -37,7 +36,7 @@ export default function Video() {
               <Description  video={video}  />
             </div>
             {video?.id ? (
-              <RelatedVideos />
+              <RelatedVideos videoId={video.id} title={video.title}/>
             ) : isLoading ? (
               <>
                 <RelatedVideoLoader /> <RelatedVideoLoader />{" "}
